@@ -21,8 +21,8 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
         test(`Data Driven Test using POM. Verify People Search results for search query: ${character.name}`, async({
             mainPage, peopleCard
         }) => {
-            allure.story('Main Test');
-            allure.feature('Data Driven Test using Page Object Model');
+            allure.feature('Main Test');
+            allure.story('Data Driven Test using Page Object Model');
             allure.description('Verify People Search results for search query');
             allure.tag("main");
             await test.step(`Fill search criteria: ${character.name}`, async() => {
@@ -44,8 +44,8 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
         test(`Data Driven Test using POM and DTO models. Verify Planet Search results with the API response for query: ${planet.name}`, async({
             planetSteps
         }) => {
-            allure.story('Main Test');
-            allure.feature('Data Driven Test using Page Object Model and DTO model');
+            allure.feature('Main Test');
+            allure.story('Data Driven Test using Page Object Model and DTO model');
             allure.description('Verify People Search results for search query');
             allure.tag("main");
             const expResults = await test.step(`Fill planet to Planet Search Query`, async() => {
@@ -63,8 +63,8 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
     test(`Negative test. Verify that there is no results when Planet search query is invalid`, async({
         planetSteps
     }) => {
-        allure.story('Main Test');
-        allure.feature('Empty search results list for the invalid search');
+        allure.feature('Main Test');
+        allure.story('Empty search results list for the invalid search');
         allure.description('Verify "Not found." search result for the invalid Planet search query');
         allure.tag("main");
         await test.step(`Fill something into Planet Search Query`, async() => {
@@ -81,8 +81,8 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
     test(`Negative test. Verify that there is no results when People search query is invalid`, async({
         mainPage, peopleCard
     }) => {
-        allure.story('Main Test');
-        allure.feature('Empty search results list for the invalid search');
+        allure.feature('Main Test');
+        allure.story('Empty search results list for the invalid search');
         allure.description(`Verify "${NOT_FOUND}" search result for the invalid People search query`);
         allure.tag("main");
         await test.step(`Fill something into People Search Query and press Enter Key`, async() => {

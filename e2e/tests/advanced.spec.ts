@@ -1,11 +1,18 @@
 import {test, expect} from "../fixtures/Fixtures";
 import { NO_CARD_MSG, NOT_FOUND, NOT_FOUND_MSG } from "../support/contants";
+import { allure } from 'allure-playwright';
 
 test.describe.parallel(`Advanced Tasks`, async() => {
-    
+
+    test.beforeEach(async() => {
+        allure.feature('Advanced Test');
+    })
+
+    // This sceanrio is failed due to issue in the logic of the application
     test.fixme(`Verify that empty result list will be visible after change search query`, async({
         mainPage, commonSteps, peopleCard
     }) => {
+        allure.tag("advanced");
         await test.step(`Fill the People search query with multiple search results`, async() => {
             await commonSteps.fillSearchCriteria(mainPage.peopleRadio, 'Darth');
             const cardsCount = await peopleCard.peopleCard.count();
@@ -24,10 +31,12 @@ test.describe.parallel(`Advanced Tasks`, async() => {
         })
     })
 
-    test(`Verify that empty search result list will be displayed after change search area for the same searcfh query`,
+    test(`Verify that empty search result list will be displayed after change search area for the same search query`,
         async({
             mainPage, planetSteps, peopleCard, planetCard
         }) => {
+            allure.story(`Change search area with the same search query`);
+            allure.tag("advanced");
             await test.step(`Fill planet search field with planet full name`, async() => {
                 await planetSteps.fillSearchQueryWithPlanet('Alderaan');
                 await expect.soft(await planetCard.planetCards.count() > 0, 'There is a search result').toBeTruthy();
@@ -48,6 +57,8 @@ test.describe.parallel(`Advanced Tasks`, async() => {
     test(`Compare results on partial matching from the API response vs UI search results`, async({
         planetSteps
     }) => {
+        allure.story(`Partial matching search query results comparison`);
+        allure.tag("advanced");
         const expectedResult = await test.step(`Search for the planet by partial matching search query`, async() => {
             return await planetSteps.fillSearchQueryWithPlanet(`as`);
         })
