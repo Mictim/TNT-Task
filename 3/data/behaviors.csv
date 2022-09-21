@@ -1,0 +1,6 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","Data Driven Test using Page Object Model","Main Test","0","0","2","0","0"
+"","Data Driven Test using Page Object Model and DTO model","Main Test","0","0","2","0","0"
+"","","","0","0","2","1","0"
+"","Empty search results list for the invalid search","Main Test","0","0","2","0","0"
+"","Simple test","","0","0","1","0","0"
