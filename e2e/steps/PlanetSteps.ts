@@ -36,10 +36,28 @@ export class PlanetSteps extends CommonSteps {
     for (let i = 0; i < (await resultsSize); i++) {
       planets.push(
         new Planet()
-          .withName(await (await this.planetCard.planetName.nth(i).innerText()).trim())
-          .withPopulation(await (await this.planetCard.planetPopulation.nth(i).innerText()).trim())
-          .withClimate(await (await this.planetCard.planetClimate.nth(i).innerText()).trim())
-          .withGravity(await (await this.planetCard.planetGravity.nth(i).innerText()).trim())
+          .withName(
+            await (await this.planetCard.planetName.nth(i).innerText()).trim()
+          )
+          .withPopulation(
+            await (
+              await this.planetCard.planetPopulation.nth(i).innerText()
+            ).trim()
+          )
+          .withClimate(
+            await (
+              await this.planetCard.planetClimate.nth(i).innerText()
+            ).trim()
+          )
+          .withGravity(
+            await (
+              await this.planetCard.planetGravity.nth(i).innerText()
+            ).trim()
+          )
+      );
+      await this.getScrShot(
+        await this.planetCard.planetCards.nth(i),
+        await this.planetCard.planetName.nth(i).innerText()
       );
     }
     return planets;
