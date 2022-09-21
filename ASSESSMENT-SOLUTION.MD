@@ -31,15 +31,15 @@ I would like to point out some interesting features regarding the solution:
 8. I have added Github Actions pipeline to deploy Allure Report on Github Pages: 
 https://mictim.github.io/TNT-Task
 
-`How to start tests:`
+How to start tests:
 
 ```npm run playwright-test```
 
-`How to run html-reporter:`
+How to run html-reporter:
 
 ```npm run html-report```
 
-`How to run allure-report`
+How to run allure-report:
 
 ```Change configuration```
 
