@@ -17,7 +17,7 @@ I would like to point out some interesting features regarding the solution:
     -   Main Page with 4 controls: radio buttons, search input and search button.
     -   People Card with character name, gender, birth year, eye color, skin color.
     -   Planet Card with planet name, population, climate, gravity.
-    
+
     C. I've added also API Response interception to get from the swapi service all needed information.
 
 4. I've improved a bit playwright project with fixtures, where I can setup different parameters to use them directly in the tests. 
@@ -30,6 +30,16 @@ I would like to point out some interesting features regarding the solution:
 
 8. I have added Github Actions pipeline to deploy Allure Report on Github Pages: 
 https://mictim.github.io/TNT-Task
+
+`How to start tests:`
+```npm run playwright-test```
+
+`How to run html-reporter:`
+```npm run html-report```
+
+`How to run allure-report`
+```Change configuration```
+```Execute command: npm run allure-report```
 
 Thank you for your attention.
 In case of any questions please contact me: 
