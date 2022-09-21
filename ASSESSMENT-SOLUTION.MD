@@ -10,12 +10,15 @@ I would like to point out some interesting features regarding the solution:
 2. I've added data attributes to the elements that I've been used in the project.
 
 3. I was trying to show how playwright can be used with the different approach:
-A. Simple test with all selectors/assestions inside the test.
-B. I've added Page Object Model approach for the page element description and divide it on three "pages":
+
+    A. Simple test with all selectors/assestions inside the test.
+
+    B. I've added Page Object Model approach for the page element description and divide it on three "pages":
     -   Main Page with 4 controls: radio buttons, search input and search button.
     -   People Card with character name, gender, birth year, eye color, skin color.
     -   Planet Card with planet name, population, climate, gravity.
-C. I've added also API Response interception to get from the swapi service all needed information.
+
+    C. I've added also API Response interception to get from the swapi service all needed information.
 
 4. I've improved a bit playwright project with fixtures, where I can setup different parameters to use them directly in the tests. 
 
@@ -27,6 +30,21 @@ C. I've added also API Response interception to get from the swapi service all n
 
 8. I have added Github Actions pipeline to deploy Allure Report on Github Pages: 
 https://mictim.github.io/TNT-Task
+
+`How to start tests:`
+
+```npm run playwright-test```
+
+`How to run html-reporter:`
+
+```npm run html-report```
+
+`How to run allure-report`
+
+```Change configuration```
+
+```Execute command: npm run allure-report```
+
 
 Thank you for your attention.
 In case of any questions please contact me: 

@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { test, Locator, Page } from "@playwright/test";
 import { MainPage } from "../pages/MainPage";
 
 export class CommonSteps {
@@ -16,7 +16,9 @@ export class CommonSteps {
       button.click(),
     ]);
     if (response.status() === 200) {
-      return response.json();
+        const buffer: Buffer = Buffer.from(JSON.stringify(await response.json()));
+        test.info().attachments.push({name: "Swapi Response", path: "swapi.json",  body: buffer, contentType: "application/json"});
+        return response.json();
     } else {
       throw new Error(`Response failed with status: ${response.status()}`);
     }
@@ -32,5 +34,10 @@ export class CommonSteps {
       await this.mainPage.searchBtn,
       `**/?search=${searchQuery}`
     );
+  }
+
+  async getScrShot(element: Locator, filename: string) {
+    const buffer = await element.screenshot();
+    test.info().attachments.push({name: filename, path: `${filename}.png`,  body: buffer, contentType: "image/png"});
   }
 }
