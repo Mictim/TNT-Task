@@ -32,14 +32,19 @@ I would like to point out some interesting features regarding the solution:
 https://mictim.github.io/TNT-Task
 
 `How to start tests:`
+
 ```npm run playwright-test```
 
 `How to run html-reporter:`
+
 ```npm run html-report```
 
 `How to run allure-report`
+
 ```Change configuration```
+
 ```Execute command: npm run allure-report```
+
 
 Thank you for your attention.
 In case of any questions please contact me: 
