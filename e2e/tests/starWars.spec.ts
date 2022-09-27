@@ -3,28 +3,19 @@ import { planets } from '../resources/planets';
 import { people } from "../resources/people";
 import { allure } from "allure-playwright";
 import { NOT_FOUND, NO_CARD_MSG, NOT_FOUND_MSG } from '../support/contants';
+import * as testData from "../resources/testData.json";
 
 test.describe.parallel('Verify search functionality for Star Wars Search Portal', async() => {
 
-    test(`Simple test. Verify starting page`, async({ page }) => {
-        allure.feature('Simple test');
-        allure.description('Verify starting page to contain all elements');
-        allure.tag("simple");
-        await expect.soft(page, 'Check the title').toHaveTitle('Star Wars Search Portal');
-        await expect.soft(page.locator('data-test-id=search-btn'), 'Verify button Search is present on the screen').toBeVisible();
-        await expect.soft(page.locator('data-test-id=people-radio'), 'Verify "People" radio button is present on the screen').toBeVisible();
-        await expect.soft(page.locator('data-test-id=planet-radio'), 'Verify "Planet" radio button is present on the screen').toBeVisible();
-        await expect.soft(page.locator('data-test-id=search-input'), 'Verify Seacrh Query input is Editable and is present on the screen').toBeEditable();
-    })
-
     for(const character of people) {
-        test(`Data Driven Test using POM. Verify People Search results for search query: ${character.name}`, async({
+        test(`testId: 4. Data Driven Test using POM. Verify People Search results for search query: ${character.name}`, async({
             mainPage, peopleCard
         }) => {
             allure.feature('Main Test');
             allure.story('Data Driven Test using Page Object Model');
             allure.description('Verify People Search results for search query');
             allure.tag("main");
+            allure.id("test-4");
             await test.step(`Fill search criteria: ${character.name}`, async() => {
                 await mainPage.peopleRadio.click();
                 await mainPage.searchInput.fill(character.name);
@@ -41,13 +32,14 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
     }
 
     for(const planet of planets) {
-        test(`Data Driven Test using POM and DTO models. Verify Planet Search results with the API response for query: ${planet.name}`, async({
+        test(`testId: 5. Data Driven Test using POM and DTO models. Verify Planet Search results with the API response for query: ${planet.name}`, async({
             planetSteps
         }) => {
             allure.feature('Main Test');
             allure.story('Data Driven Test using Page Object Model and DTO model');
             allure.description('Verify People Search results for search query');
             allure.tag("main");
+            allure.id("test-5");
             const expResults = await test.step(`Fill planet to Planet Search Query`, async() => {
                 return await planetSteps.fillSearchQueryWithPlanet(planet.name);
             })
@@ -60,15 +52,16 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
         })
     }
 
-    test(`Negative test. Verify that there is no results when Planet search query is invalid`, async({
+    test(`testId: 6. Negative test. Verify that there is no results when Planet search query is invalid`, async({
         planetSteps
     }) => {
         allure.feature('Main Test');
         allure.story('Empty search results list for the invalid search');
         allure.description('Verify "Not found." search result for the invalid Planet search query');
         allure.tag("main");
+        allure.id("test-6");
         await test.step(`Fill something into Planet Search Query`, async() => {
-            await planetSteps.fillSearchQueryWithPlanet('dsajdajkdakjdha');
+            await planetSteps.fillSearchQueryWithPlanet(testData.test6.query);
         })
 
         await test.step('Verify that there is no search results appears on the screen', async() => {
@@ -78,16 +71,17 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
         })
     })
 
-    test(`Negative test. Verify that there is no results when People search query is invalid`, async({
+    test(`testId: 7. Negative test. Verify that there is no results when People search query is invalid`, async({
         mainPage, peopleCard
     }) => {
         allure.feature('Main Test');
         allure.story('Empty search results list for the invalid search');
         allure.description(`Verify "${NOT_FOUND}" search result for the invalid People search query`);
         allure.tag("main");
+        allure.id("test-7");
         await test.step(`Fill something into People Search Query and press Enter Key`, async() => {
             await mainPage.peopleRadio.click();
-            await mainPage.searchInput.fill('dsajdajkdakjdha');
+            await mainPage.searchInput.fill(testData.test7.query);
             await mainPage.page.keyboard.press('Enter');
             await mainPage.page.waitForLoadState('networkidle');
         })

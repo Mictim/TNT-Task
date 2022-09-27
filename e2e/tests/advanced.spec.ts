@@ -1,6 +1,7 @@
-import {test, expect} from "../fixtures/Fixtures";
+import { test, expect } from "../fixtures/Fixtures";
 import { NO_CARD_MSG, NOT_FOUND, NOT_FOUND_MSG } from "../support/contants";
 import { allure } from 'allure-playwright';
+import * as testData from "../resources/testData.json";
 
 test.describe.parallel(`Advanced Tasks`, async() => {
 
@@ -9,12 +10,13 @@ test.describe.parallel(`Advanced Tasks`, async() => {
     })
 
     // This sceanrio is failed due to issue in the logic of the application
-    test.fixme(`Verify that empty result list will be visible after change search query`, async({
+    test.fixme(`testId: 1. Verify that empty result list will be visible after change search query`, async({
         mainPage, commonSteps, peopleCard
     }) => {
         allure.tag("advanced");
+        allure.id("test-1");
         await test.step(`Fill the People search query with multiple search results`, async() => {
-            await commonSteps.fillSearchCriteria(mainPage.peopleRadio, 'Darth');
+            await commonSteps.fillSearchCriteria(mainPage.peopleRadio, testData.test1.query);
             const cardsCount = await peopleCard.peopleCard.count();
             await expect.soft(cardsCount > 1, 'Verify count of search result records').toBeTruthy();
         })
@@ -31,14 +33,15 @@ test.describe.parallel(`Advanced Tasks`, async() => {
         })
     })
 
-    test(`Verify that empty search result list will be displayed after change search area for the same search query`,
+    test(`testId: 2. Verify that empty search result list will be displayed after change search area for the same search query`,
         async({
             mainPage, planetSteps, peopleCard, planetCard
         }) => {
             allure.story(`Change search area with the same search query`);
             allure.tag("advanced");
+            allure.id("test-2");
             await test.step(`Fill planet search field with planet full name`, async() => {
-                await planetSteps.fillSearchQueryWithPlanet('Alderaan');
+                await planetSteps.fillSearchQueryWithPlanet(testData.test2.query);
                 await expect.soft(await planetCard.planetCards.count() > 0, 'There is a search result').toBeTruthy();
             })
             
@@ -54,13 +57,14 @@ test.describe.parallel(`Advanced Tasks`, async() => {
         }
     )
 
-    test(`Compare results on partial matching from the API response vs UI search results`, async({
+    test(`testId: 3. Compare results on partial matching from the API response vs UI search results`, async({
         planetSteps
     }) => {
         allure.story(`Partial matching search query results comparison`);
         allure.tag("advanced");
+        allure.id("test-3");
         const expectedResult = await test.step(`Search for the planet by partial matching search query`, async() => {
-            return await planetSteps.fillSearchQueryWithPlanet(`as`);
+            return await planetSteps.fillSearchQueryWithPlanet(testData.test3.query);
         })
 
         const actualResult = await test.step(`Collect search results from UI`, async() => {
