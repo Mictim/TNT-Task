@@ -12,7 +12,7 @@ export class CommonSteps {
 
   async getResponseOnBtnClick(button: Locator, url: string): Promise<any> {
     const [response] = await Promise.all([
-      this.page.waitForResponse(url),
+      this.page.waitForResponse(url, {timeout: 60000}),
       button.click(),
     ]);
     if (response.status() === 200) {
