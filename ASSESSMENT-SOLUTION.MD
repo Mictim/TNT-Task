@@ -10,21 +10,26 @@ and GitHub Actions pipeline was executed without issues.
 * ```npm run playwright-test``` - playwright test execution
 
 When you will try to execute it from the local, Playwright HTML report will be generated.
+
 When the project will be run on CI/CD, [allure-playwright report](https://mictim.github.io/TNT-Task/) will be generated.
 
 ## Issues from the first try
 
 ### The first issue with project installing:
 I found out that the issue with the installing the project by the command `npm ci` had the place.
+
 For some reason `package-lock.json` file was not updated in the project.
+
 I have updated it and it should work. If it will not work for you, please try to install the project with command:
 `npm install`.
 
 ### The second issue was with test execution:
-I tried to understand what is the issue and find out that this issue reproduces when the connection is weak.
+I tried to understand what is the issue and I find out that this issue reproduces when the internet connection is weak.
+
 What was the previous configuration of the project:
 * Test timeout - 30 seconds
 * Action timeout and expect timeout - 5 seconds
+
 I have increase timeouts:
 * Test timeout - 120 seconds
 * Action timeout - 30 seconds
@@ -33,26 +38,26 @@ I have increase timeouts:
 These changes were enough to execute tests on weak connection without timeout failures.
 
 ### Hardcoded input values:
-I moved all test data to `testData.json` file.
+I moved all test data to [testData.json](./e2e/resources/testData.json) file.
 
 ## Test coverage:
 I have added test ids into the test names for the better navigation on the tests and map the ids with test data.
 
 ### Advanced test scenarios:
-* `#1. This test should cover the scenario when user enters any valid query and get the search result and after that removes search query from the search input field and click on Search button`.
-This test will be failed, because on the last search nothing will happen, no any request sent from the application (issue?).
-* `#2. This test should cover the scenario when user tries to search planet by full name and get a valid search result and after that tries to find a character with the same name and get "Not Found." message`.
-* `#3. This test is vice versa check for the test #2`
-* `#4. This test compare Planet partial search query UI results with the API response results`
-* `#5. This test compare People partial search query UI results with the API response results`
+* #1. This test should cover the scenario when user enters any valid query and get the search result and after that removes search query from the search input field and click on Search button.
+`This test will be failed, because on the last search nothing will happen, no any request sent from the application (issue?).`
+* #2. This test should cover the scenario when user tries to search planet by full name and get a valid search result and after that tries to find a character with the same name and get "Not Found." message.
+* #3. This test is vice versa check for the test #2.
+* #4. This test compare Planet partial search query UI results with the API response results.
+* #5. This test compare People partial search query UI results with the API response results.
 
 ### Main test scenarios:
-* `#6. This is data driven test: I've get all character's props from the testData.json file and compare them with search results`
-* `#7. This is data driven test: I've get all planet's props from the testData.json file and compare them with search results`
-* `#8, #9. In these tests I'm verifying "Not Found." message appearance when query contains invalid search request`
+* #6. This is data driven test: I've get all character's props from the testData.json file and compare them with search results.
+* #7. This is data driven test: I've get all planet's props from the testData.json file and compare them with search results.
+* #8, #9. In these tests I'm verifying "Not Found." message appearance when query contains invalid search request.
 
-Also in these scenarios I've tried to use different queries with lowerCase, upperCase.
-In scenario #9 I've used 'Enter' key press.
+`Also in these scenarios I've tried to use different queries with lowerCase, upperCase.
+In scenario #9 I've used 'Enter' key press`
 
 ## Anomalies/Bugs
 * When the Search input field is empty and user tries to click on Search Button (or press Enter key) no any request sent to the SWAPI service.
@@ -65,7 +70,7 @@ In scenario #9 I've used 'Enter' key press.
 * divide testData into simplier json data files with information for allure report (it can be implemented by creating some kind of allure props wrapper)
 
 
-### First Try
+## First Try
 =====================
 Hello,
 
