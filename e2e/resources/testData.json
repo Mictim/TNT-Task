@@ -8,6 +8,36 @@
     "test3": {
         "query": "as"
     },
+    "test4": [
+        {
+            "name": "Boba Fett",
+            "gender": "male",
+            "birthYear": "31.5BBY",
+            "eyeColor": "brown",
+            "skinColor": "fair"
+        },
+        {
+            "name": "C-3PO",
+            "gender": "n/a",
+            "birthYear": "112BBY",
+            "eyeColor": "yellow",
+            "skinColor": "gold"
+        }
+    ],
+    "test5": [
+        {
+            "name": "Tatooine",
+            "population": "200000",
+            "climate": "arid",
+            "gravity": "1 standard"
+        },
+        {
+            "name": "Coruscant",
+            "population": "1000000000000",
+            "climate": "temperate",
+            "gravity": "1 standard"
+        }
+    ],
     "test6": {
         "query": "dsajdajkdakjdha"
     },

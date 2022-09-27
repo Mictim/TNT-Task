@@ -1,13 +1,11 @@
 import { test, expect } from "../fixtures/Fixtures";
-import { planets } from '../resources/planets';
-import { people } from "../resources/people";
 import { allure } from "allure-playwright";
 import { NOT_FOUND, NO_CARD_MSG, NOT_FOUND_MSG } from '../support/contants';
 import * as testData from "../resources/testData.json";
 
 test.describe.parallel('Verify search functionality for Star Wars Search Portal', async() => {
 
-    for(const character of people) {
+    for(const character of testData.test4) {
         test(`testId: 4. Data Driven Test using POM. Verify People Search results for search query: ${character.name}`, async({
             mainPage, peopleCard
         }) => {
@@ -31,7 +29,7 @@ test.describe.parallel('Verify search functionality for Star Wars Search Portal'
         })
     }
 
-    for(const planet of planets) {
+    for(const planet of testData.test5) {
         test(`testId: 5. Data Driven Test using POM and DTO models. Verify Planet Search results with the API response for query: ${planet.name}`, async({
             planetSteps
         }) => {
