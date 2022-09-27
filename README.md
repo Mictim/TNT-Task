@@ -1,5 +1,8 @@
 # FedEx Frontend QA - Javascript Test Assessment
 
+# Assesment solution you can find here:
+[ASSESSMENT-SOLUTION.MD](./ASSESSMENT-SOLUTION.MD)
+
 # Read the ASSESSMENT
 
 The assessment information is located in the file: [ASSESSMENT.MD](./ASSESSMENT.MD)
