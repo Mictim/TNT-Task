@@ -43,7 +43,7 @@ I moved all test data to [testData.json](./e2e/resources/testData.json) file.
 ## Test coverage:
 I have added test ids into the test names for the better navigation on the tests and map the ids with test data.
 
-### Advanced test scenarios:
+### [Advanced test scenarios](./e2e/tests/advanced.spec.ts):
 * #1. This test should cover the scenario when user enters any valid query and get the search result and after that removes search query from the search input field and click on Search button.
 `This test will be failed, because on the last search nothing will happen, no any request sent from the application (issue?).`
 * #2. This test should cover the scenario when user tries to search planet by full name and get a valid search result and after that tries to find a character with the same name and get "Not Found." message.
@@ -51,13 +51,16 @@ I have added test ids into the test names for the better navigation on the tests
 * #4. This test compare Planet partial search query UI results with the API response results.
 * #5. This test compare People partial search query UI results with the API response results.
 
-### Main test scenarios:
+### [Main test scenarios](./e2e/tests/starWars.spec.ts):
 * #6. This is data driven test: I've get all character's props from the testData.json file and compare them with search results.
 * #7. This is data driven test: I've get all planet's props from the testData.json file and compare them with search results.
 * #8, #9. In these tests I'm verifying "Not Found." message appearance when query contains invalid search request.
 
 `Also in these scenarios I've tried to use different queries with lowerCase, upperCase.
 In scenario #9 I've used 'Enter' key press`
+
+### [Simple test scenario](./e2e/tests/simpleTest.spec.ts):
+* In this test I wanted to show how Playwright tests can be implemented without POM. This test checks all main elements on the Main page.
 
 ## Anomalies/Bugs
 * When the Search input field is empty and user tries to click on Search Button (or press Enter key) no any request sent to the SWAPI service.
