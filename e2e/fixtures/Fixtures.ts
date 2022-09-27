@@ -4,13 +4,15 @@ import { PeopleCard } from "../pages/PeopleCard";
 import { PlanetSteps } from "../steps/PlanetSteps";
 import { CommonSteps } from "../steps/CommonSteps";
 import { PlanetCard } from '../pages/PlanetCard';
+import { PeopleSteps } from "../steps/PeopleSteps";
 
 export type TestOptions = {
   mainPage: MainPage;
   planetSteps: PlanetSteps;
-  peopleCard: PeopleCard;
+  peopleSteps: PeopleSteps;
   commonSteps: CommonSteps;
   planetCard: PlanetCard;
+  peopleCard: PeopleCard;
 };
 
 export const test = base.extend<TestOptions>({
@@ -23,17 +25,20 @@ export const test = base.extend<TestOptions>({
   mainPage: async ({ page }, use) => {
     await use(new MainPage(page));
   },
-  planetSteps: async ({ page }, use) => {
-    await use(new PlanetSteps(page));
-  },
-  peopleCard: async ({ page }, use) => {
-    await use(new PeopleCard(page));
-  },
   commonSteps: async ({ page }, use) => {
     await use(new CommonSteps(page));
   },
+  planetSteps: async ({ page }, use) => {
+    await use(new PlanetSteps(page));
+  },
+  peopleSteps: async ({ page }, use) => {
+    await use(new PeopleSteps(page));
+  },
   planetCard: async ({ page }, use) => {
     await use(new PlanetCard(page));
+  },
+  peopleCard: async ({ page }, use) => {
+    await use(new PeopleCard(page));
   },
 });
 

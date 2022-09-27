@@ -6,10 +6,17 @@
         "query": "Alderaan"
     },
     "test3": {
+        "query": "Luke Skywalker"
+    },
+    "test4": {
         "query": "as"
     },
-    "test4": [
+    "test5": {
+        "query": "sky"
+    },
+    "test6": [
         {
+            "query": "Boba",
             "name": "Boba Fett",
             "gender": "male",
             "birthYear": "31.5BBY",
@@ -17,31 +24,72 @@
             "skinColor": "fair"
         },
         {
+            "query": "c-3po",
             "name": "C-3PO",
             "gender": "n/a",
             "birthYear": "112BBY",
             "eyeColor": "yellow",
             "skinColor": "gold"
+        },
+        {
+            "query": "Luke Skywalker",
+            "name": "Luke Skywalker",
+            "gender": "male",
+            "birthYear": "19BBY",
+            "eyeColor": "blue",
+            "skinColor": "fair"
+        },
+        {
+            "query": "Leia Organa",
+            "name": "Leia Organa",
+            "gender": "female",
+            "birthYear": "19BBY",
+            "eyeColor": "brown",
+            "skinColor": "light"
+        },
+        {
+            "query": "r2",
+            "name": "R2-D2",
+            "gender": "n/a",
+            "birthYear": "33BBY",
+            "eyeColor": "red",
+            "skinColor": "white, blue"
         }
     ],
-    "test5": [
+    "test7": [
         {
+            "query": "tatooine",
             "name": "Tatooine",
             "population": "200000",
             "climate": "arid",
             "gravity": "1 standard"
         },
         {
+            "query": "corus",
             "name": "Coruscant",
             "population": "1000000000000",
             "climate": "temperate",
             "gravity": "1 standard"
+        },
+        {
+            "query": "alderaan",
+            "name": "Alderaan",
+            "population": "2000000000",
+            "climate": "temperate",
+            "gravity": "1 standard"
+        },
+        {
+            "query": "HOTH",
+            "name": "Hoth",
+            "population": "unknown",
+            "climate": "frozen",
+            "gravity": "1.1 standard"
         }
     ],
-    "test6": {
+    "test8": {
         "query": "dsajdajkdakjdha"
     },
-    "test7": {
+    "test9": {
         "query": "dsajdajkdakjdha"
     }
 }

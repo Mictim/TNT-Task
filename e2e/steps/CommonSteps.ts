@@ -24,15 +24,12 @@ export class CommonSteps {
     }
   }
 
-  async fillSearchCriteria(
-    radioBtn: Locator,
-    searchQuery: string
-  ): Promise<any> {
+  async fillSearchCriteria(radioBtn: Locator, searchQuery: string): Promise<any> {
     await radioBtn.click();
     await this.mainPage.searchInput.fill(searchQuery);
     return this.getResponseOnBtnClick(
       await this.mainPage.searchBtn,
-      `**/?search=${searchQuery}`
+      `**/?search=${searchQuery.replace(" ", "%20")}`
     );
   }
 
