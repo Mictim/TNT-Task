@@ -45,11 +45,14 @@ I have added test ids into the test names for the better navigation on the tests
 
 ### [Advanced test scenarios](./e2e/tests/advanced.spec.ts):
 * #1. This test should cover the scenario when user enters any valid query and get the search result and after that removes search query from the search input field and click on Search button.
+
 `This test will be failed, because on the last search nothing will happen, no any request sent from the application (issue?).`
 * #2. This test should cover the scenario when user tries to search planet by full name and get a valid search result and after that tries to find a character with the same name and get "Not Found." message.
 * #3. This test is vice versa check for the test #2.
 * #4. This test compare Planet partial search query UI results with the API response results.
 * #5. This test compare People partial search query UI results with the API response results.
+
+`In the last two test cases API response is stored as an attachment in the report`
 
 ### [Main test scenarios](./e2e/tests/starWars.spec.ts):
 * #6. This is data driven test: I've get all character's props from the testData.json file and compare them with search results.
