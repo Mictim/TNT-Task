@@ -17,7 +17,7 @@ export const test = base.extend<TestOptions>({
   page: async ({ browser, baseURL }, use) => {
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto(baseURL!, { waitUntil: "domcontentloaded", timeout: 15000 });
+    await page.goto(baseURL!, { waitUntil: "domcontentloaded", timeout: 90000 });
     await use(page);
   },
   mainPage: async ({ page }, use) => {
