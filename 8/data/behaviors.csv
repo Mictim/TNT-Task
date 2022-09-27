@@ -1,8 +1,0 @@
-"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"","Simple test","","0","0","1","0","0"
-"","Main Test","Data Driven Test using Page Object Model and DTO model","0","0","2","0","0"
-"","Main Test","Empty search results list for the invalid search","0","0","2","0","0"
-"","Advanced Test","Partial matching search query results comparison","0","0","1","0","0"
-"","Main Test","Data Driven Test using Page Object Model","0","0","2","0","0"
-"","Advanced Test","Change search area with the same search query","0","0","1","0","0"
-"","","","0","0","0","1","0"
