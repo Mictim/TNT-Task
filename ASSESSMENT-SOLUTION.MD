@@ -35,6 +35,11 @@ I have increase timeouts:
 * Action timeout - 30 seconds
 * Expect timeout - 15 seconds
 * Have added setup local server timeout for 120 seconds
+* page.goto timeout is set up to 90 seconds.
+* Also for local execution I've change retry count to 1.
+
+The main problem of the test execution was starting webServer. Even if server will not up in 90 seconds and test were failed, they will be re-run with the retry.
+
 These changes were enough to execute tests on weak connection without timeout failures.
 
 ### Hardcoded input values:
