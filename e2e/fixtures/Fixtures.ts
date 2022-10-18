@@ -1,4 +1,4 @@
-import { test as base } from "@playwright/test";
+import { selectors, test as base } from "@playwright/test";
 import { MainPage } from "../pages/MainPage";
 import { PeopleCard } from "../pages/PeopleCard";
 import { PlanetSteps } from "../steps/PlanetSteps";
@@ -17,10 +17,12 @@ export type TestOptions = {
 
 export const test = base.extend<TestOptions>({
   page: async ({ browser, baseURL }, use) => {
+    selectors.setTestIdAttribute("data-test-id");
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto(baseURL!, { waitUntil: "domcontentloaded", timeout: 90000 });
     await use(page);
+    await page.close();
   },
   mainPage: async ({ page }, use) => {
     await use(new MainPage(page));

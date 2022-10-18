@@ -10,10 +10,10 @@ export class PlanetCard {
 
   constructor(page: Page) {
     this.page = page;
-    this.planetCards = page.locator("data-test-id=planet-card");
-    this.planetName = page.locator("data-test-id=planet-card >> h6");
-    this.planetPopulation = page.locator("data-test-id=planet-population");
-    this.planetClimate = page.locator("data-test-id=planet-climate");
-    this.planetGravity = page.locator("data-test-id=planet-gravity");
+    this.planetCards = page.getByTestId("planet-card");
+    this.planetName = this.planetCards.locator("h6");
+    this.planetPopulation = page.getByTestId("planet-population");
+    this.planetClimate = page.getByTestId("planet-climate");
+    this.planetGravity = page.getByTestId("planet-gravity");
   }
 }

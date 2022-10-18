@@ -9,9 +9,9 @@ export class MainPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.peopleRadio = page.locator("data-test-id=people-radio");
-    this.planetRadio = page.locator("data-test-id=planet-radio");
-    this.searchInput = page.locator("data-test-id=search-input");
-    this.searchBtn = page.locator("data-test-id=search-btn");
+    this.peopleRadio = page.getByTestId("people-radio");
+    this.planetRadio = page.getByTestId("planet-radio");
+    this.searchInput = page.getByTestId("search-input");
+    this.searchBtn = page.getByTestId("search-btn");
   }
 }
